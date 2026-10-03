@@ -1,0 +1,7 @@
+{
+  "version": "1.2",
+  "versionCode": 12,
+  "apkUrl": "ВСТАВЬТЕ_ПРЯМУЮ_HTTPS_ССЫЛКУ_НА_APK",
+  "sha256": "ВСТАВЬТЕ_SHA256_APK_(64_символа)_ИЛИ_ЗАПУСТИТЕ_tools/make_update_json.bat",
+  "changelog": "Новая версия KiBrowser"
+}
