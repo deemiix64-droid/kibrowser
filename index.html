@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KiBrowser</title>
+
+  <style>
+    :root {
+      --orange: #ff7a00;
+      --orange-light: #fff0df;
+      --surface: #fffaf5;
+      --text: #211a14;
+      --secondary: #756b62;
+      --white: #ffffff;
+      --radius: 28px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, #ffe0bd 0, transparent 30%),
+        radial-gradient(circle at 90% 90%, #ffd3a5 0, transparent 30%),
+        #fff8f1;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(900px, calc(100% - 32px));
+      margin: auto;
+      padding: 55px 0;
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 45px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .mini-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      background: var(--orange);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 900;
+      box-shadow: 0 8px 22px rgba(255, 122, 0, .25);
+    }
+
+    .hero {
+      text-align: center;
+    }
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 28px;
+      border-radius: 42px;
+      background: var(--orange);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 92px;
+      font-weight: 900;
+      box-shadow:
+        0 25px 55px rgba(255, 122, 0, .28),
+        inset 0 -8px 0 rgba(0,0,0,.05);
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 72px);
+      letter-spacing: -3px;
+      margin-bottom: 12px;
+    }
+
+    .description {
+      color: var(--secondary);
+      font-size: 18px;
+      line-height: 1.6;
+      max-width: 570px;
+      margin: auto;
+    }
+
+    .download {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+      padding: 17px 30px;
+      border-radius: 18px;
+      background: var(--orange);
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(255, 122, 0, .25);
+      transition: .2s ease;
+    }
+
+    .download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(255, 122, 0, .35);
+    }
+
+    .download:active {
+      transform: scale(.97);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 55px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,122,0,.1);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: 0 10px 35px rgba(90,50,10,.07);
+      backdrop-filter: blur(12px);
+    }
+
+    .card-label {
+      color: var(--secondary);
+      font-size: 14px;
+      margin-bottom: 9px;
+    }
+
+    .version {
+      font-size: 27px;
+      font-weight: 800;
+      color: var(--orange);
+    }
+
+    .changelog {
+      font-size: 17px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .developer {
+      margin-top: 45px;
+      text-align: center;
+      color: var(--secondary);
+      font-size: 14px;
+    }
+
+    .developer b {
+      color: var(--text);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 25px;
+      color: #a69b91;
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        padding: 30px 0;
+      }
+
+      .top {
+        margin-bottom: 35px;
+      }
+
+      .logo {
+        width: 125px;
+        height: 125px;
+        font-size: 76px;
+        border-radius: 36px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <header class="top">
+      <div class="brand">
+        <div class="mini-logo">К</div>
+        <span>KiBrowser</span>
+      </div>
+    </header>
+
+    <section class="hero">
+
+      <div class="logo">К</div>
+
+      <h1>KiBrowser</h1>
+
+      <p class="description">
+        Быстрый и удобный браузер для Android.
+      </p>
+
+      <a id="downloadButton" class="download" href="#" download>
+        ↓&nbsp; Скачать KiBrowser
+      </a>
+
+    </section>
+
+    <section class="cards">
+
+      <div class="card">
+        <div class="card-label">Текущая версия</div>
+        <div id="version" class="version">Загрузка...</div>
+      </div>
+
+      <div class="card">
+        <div class="card-label">Что нового</div>
+        <div id="changelog" class="changelog">Загрузка...</div>
+      </div>
+
+    </section>
+
+    <div class="developer">
+      Разработчик: <b id="developerName">ВАШЕ ИМЯ</b>
+    </div>
+
+    <footer>
+      © 2026 KiBrowser
+    </footer>
+
+  </main>
+
+
+  <script>
+    /*
+      ==========================================
+      НАСТРОЙКИ
+      ==========================================
+    */
+
+    // Ссылка на ваш update.json
+    const UPDATE_JSON_URL = "https://ВАШ-САЙТ/update.json";
+
+    // Имя разработчика можно изменить прямо здесь
+    const DEVELOPER_NAME = "ВАШЕ ИМЯ";
+
+
+    /*
+      ==========================================
+      ЗАГРУЗКА ИНФОРМАЦИИ О ВЕРСИИ
+      ==========================================
+    */
+
+    const versionElement = document.getElementById("version");
+    const changelogElement = document.getElementById("changelog");
+    const downloadButton = document.getElementById("downloadButton");
+    const developerElement = document.getElementById("developerName");
+
+    developerElement.textContent = DEVELOPER_NAME;
+
+    async function loadUpdate() {
+      try {
+        const response = await fetch(
+          UPDATE_JSON_URL + "?t=" + Date.now()
+        );
+
+        if (!response.ok) {
+          throw new Error("Не удалось загрузить update.json");
+        }
+
+        const update = await response.json();
+
+        versionElement.textContent = update.version || "Неизвестно";
+        changelogElement.textContent =
+          update.changelog || "Изменения не указаны";
+
+        if (update.apkUrl) {
+          downloadButton.href = update.apkUrl;
+        } else {
+          downloadButton.removeAttribute("href");
+        }
+
+      } catch (error) {
+        console.error(error);
+
+        versionElement.textContent = "Ошибка";
+        changelogElement.textContent =
+          "Не удалось загрузить информацию об обновлении.";
+
+        downloadButton.removeAttribute("href");
+      }
+    }
+
+    loadUpdate();
+  </script>
+
+</body>
+</html>
